@@ -10,7 +10,7 @@
         </form>
       </div>
       <div class="col-3 m-2 card translated">
-        plain english here: {{translated}}
+        plain english here: <br> {{translated}}
       </div>
     </div>
   </div>
@@ -29,18 +29,21 @@ export default {
       //NOTE will probably be adding to string of translated (like palendrome whiteboard)
     }
   },
-  mounted(){
-
-  },
   methods:{
     translateRaw(){
+      let translated = ""
       let todo = this.newRequest.body
-      if(todo == "spencer"){
-        this.translated = "yes"
+      let res = todo.split(" ")
+      for(let i=0;i<res.length;i++){
+        let word = res[i].toLowerCase()
+        let keyword = res[i + 1] 
+      if(word == "select"){
+        this.translated = "Retrieve records from table" + " " + keyword
+        debugger
         }
-        else this.translated = "no"
+        // else this.translated = "no"
     }
-
+    }
   }
 };
 </script>
