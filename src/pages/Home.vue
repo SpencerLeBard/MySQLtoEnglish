@@ -4,7 +4,7 @@
       <div class="col-4">
    <form @submit.prevent="translateRaw()" class="form-inline">
           <div class="form-group">
-            <input type="text" placeholder="Type SQL statment..." class="form-control" v-model="newRequest.body" required />
+            <input type="text" placeholder="Type MySQL statment..." class="form-control" v-model="newRequest.body" required />
           </div>
 <button type="submit" class="btn btn-success m-2" @submit.prevent="translateRaw()">Translate</button>
         </form>
@@ -26,8 +26,7 @@ export default {
         body:""
       },
       translated: ""
-      //NOTE will probably be adding to string of translated (like palendrome whiteboard)
-    }
+          }
   },
   methods:{
     translateRaw(){
@@ -36,12 +35,20 @@ export default {
       let res = todo.split(" ")
       for(let i=0;i<res.length;i++){
         let word = res[i].toLowerCase()
-        let keyword = res[i + 1] 
+        let selectKeyword = res[i + 1] 
+        let fromKeyword = "test"
       if(word == "select"){
-        this.translated = "Retrieve records from table" + " " + keyword
-        debugger
+        this.translated += "Getting all" + " " + selectKeyword
         }
-        // else this.translated = "no"
+      if(word == "from"){
+          let fromKeyword = res[i+1] 
+          this.translated += " " + "from table" + " " + fromKeyword
+        }
+      if(word == "insert"){
+          let insertKeyword = res[i+1] 
+          this.translated += " Putting " + insertKeyword + " " + "Into Table"
+        }
+        // else this.translated = "Cannot Detect MySQL Syntax"
     }
     }
   }
