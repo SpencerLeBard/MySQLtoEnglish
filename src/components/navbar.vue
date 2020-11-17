@@ -1,16 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="Vue logo" src="../assets/logo.png" style="transform: rotate(-90deg);width: 25px;" />
-        <img
-          alt="Vue logo"
-          src="../assets/logo.png"
-          style="transform: rotate(-90deg);width: 25px;margin-top: -10px;"
-        />
-      </div>
       <div>
-        <h3 style="color: green">loggr</h3>
+        <h3 style="color: green">MySQL to English Transator</h3>
       </div>
     </router-link>
     <button
