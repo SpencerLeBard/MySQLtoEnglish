@@ -30,6 +30,7 @@ export default {
   },
   methods:{
     translateRaw(){
+      //NOTE option: could call new methods in if statments
       let translated = ""
       let todo = this.newRequest.body
       let res = todo.split(" ")
@@ -37,6 +38,7 @@ export default {
         let word = res[i].toLowerCase()
         let selectKeyword = res[i + 1] 
         let fromKeyword = "test"
+        let truncateKeyword = "test"
       if(word == "select"){
         this.translated += "Getting all" + " " + selectKeyword
         }
@@ -46,7 +48,12 @@ export default {
         }
       if(word == "insert"){
           let insertKeyword = res[i+1] 
-          this.translated += " Putting " + insertKeyword + " " + "Into Table"
+          this.translated += " Adding " + insertKeyword + " " + "Into Table"
+        }
+      if(word == "truncate"){
+          let truncateKeyword = res[i+2] 
+          debugger
+          this.translated += " DELETE EVERYTHING IN " + truncateKeyword + " " + "Table"
         }
         // else this.translated = "Cannot Detect MySQL Syntax"
     }
