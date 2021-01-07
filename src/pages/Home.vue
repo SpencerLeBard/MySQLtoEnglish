@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     translateRaw(){
-      //NOTE option: could call new methods in if statments
+      //NOTE option: could call new methods in 'if' statments
       let translated = ""
       let todo = this.newRequest.body
       let res = todo.split(" ")
@@ -52,10 +52,11 @@ export default {
         }
       if(word == "truncate"){
           let truncateKeyword = res[i+2] 
-          debugger
+          // debugger
           this.translated += " DELETE EVERYTHING IN " + truncateKeyword + " " + "Table"
         }
-        // else this.translated = "Cannot Detect MySQL Syntax"
+        
+        // NOTE else this.translated = "Cannot Detect MySQL Syntax"
     }
     }
   }
